@@ -5,11 +5,11 @@
   "main": "main.js",
   "scripts": {
     "build": "npm run build:graphql && npm run build:app",
-    "build:graphql": "browserify gql-lib.js -o runtime/gql-lib-bundle.js",
+    "build:graphql": "browserify gql-lib.js -o runtime/gql-lib-bundle-16.11.0.js",
     "build:app": "browserify app-gql.js -o runtime/app-gql-bundle.js"
   },
   "dependencies": {
-    "graphql": "^16.8.1"
+    "graphql": "16.11.0"
   },
   "devDependencies": {
     "browserify": "^17.0.0",
