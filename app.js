@@ -25,9 +25,13 @@ async function initializeApp() {
         updateStatus("Loading Monaco Editor...");
         await initializeMonaco();
         
-        setupUI();
-        showMainApp();
-        updateStatus("GraphQL Playground Ready!");
+            setupUI();
+    showMainApp();
+    
+    // Initialize the query tab as active
+    switchTab("query");
+    
+    updateStatus("GraphQL Playground Ready!");
         
     } catch (error) {
         console.error("Initialization error:", error);
@@ -252,14 +256,7 @@ function toggleSamplesDropdown() {
     menu.classList.toggle("hidden");
 }
 
-// Global variable to store the last query
-let lastQuery = `query {
-  users {
-    id
-    name
-    email
-  }
-}`;
+
 
 // Switch between tabs
 function switchTab(tabName) {
@@ -269,44 +266,18 @@ function switchTab(tabName) {
     
     document.querySelector(`[data-tab="${tabName}"]`).classList.add("active");
     
-    if (tabName === "docs") {
-        // Save current query before showing docs
-        lastQuery = queryEditor.getValue();
-        showDocs();
+    // Hide all tab content panels
+    document.getElementById("queryEditor").style.display = "none";
+    document.getElementById("dataPanel").classList.add("hidden");
+    
+    if (tabName === "data") {
+        // Show sample data panel
+        document.getElementById("dataPanel").classList.remove("hidden");
+        populateSampleData();
     } else if (tabName === "query") {
-        // Restore the last query when switching back
-        queryEditor.setValue(lastQuery);
+        // Show query editor
+        document.getElementById("queryEditor").style.display = "block";
     }
-}
-
-// Show documentation
-function showDocs() {
-    queryEditor.setValue(`# GraphQL Documentation
-#
-# This playground demonstrates GraphQL with sample data
-#
-# Available queries:
-# - users: Get all users
-# - posts: Get all posts with authors
-# - user(id: "1"): Get specific user
-# - post(id: "1"): Get specific post with author
-#
-# Example query:
-query {
-  users {
-    id
-    name
-    email
-  }
-  
-  posts {
-    id
-    title
-    author {
-      name
-    }
-  }
-}`);
 }
 
 // Populate sample queries dropdown
@@ -488,13 +459,32 @@ function populateSampleQueries() {
         
         button.addEventListener("click", () => {
             queryEditor.setValue(sample.query);
-            lastQuery = sample.query; // Save the loaded query
             updateQueryStatus(`Loaded: ${sample.title}`);
             document.getElementById("samplesMenu").classList.add("hidden");
         });
         
         container.appendChild(button);
     });
+}
+
+// Populate sample data in the data tab
+function populateSampleData() {
+    // Get sample data from the GraphQL playground
+    if (window.GraphQLPlayground && window.GraphQLPlayground.sampleData) {
+        const { users, posts } = window.GraphQLPlayground.sampleData;
+        
+        // Display users data
+        const usersJson = document.getElementById("usersJson");
+        usersJson.textContent = JSON.stringify(users, null, 2);
+        
+        // Display posts data
+        const postsJson = document.getElementById("postsJson");
+        postsJson.textContent = JSON.stringify(posts, null, 2);
+    } else {
+        // Fallback if sample data is not available
+        document.getElementById("usersJson").textContent = "Sample data not available";
+        document.getElementById("postsJson").textContent = "Sample data not available";
+    }
 }
 
 // Update status text

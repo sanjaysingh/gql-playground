@@ -236,6 +236,36 @@
     display: none !important;
 }
 
+/* Tab content styles */
+.tab-content {
+    flex: 1;
+    overflow-y: auto;
+    background: #1a202c;
+}
+
+.tab-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Mobile adjustments for tab content */
+@media (max-width: 768px) {
+    .tab-content {
+        font-size: 14px;
+    }
+    
+    .tab-content pre {
+        font-size: 11px;
+    }
+    
+    .tab-content .max-h-64 {
+        max-height: 200px;
+    }
+}
+
 /* Mobile-specific improvements */
 @media (max-width: 768px) {
     /* Improve header responsiveness */
