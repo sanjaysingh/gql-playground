@@ -222,6 +222,9 @@ async function runQuery() {
     runBtn.disabled = true;
     runBtn.textContent = "Running...";
     
+    // Switch to query tab if not already there
+    switchTab("query");
+    
     try {
         const query = queryEditor.getValue();
         
@@ -461,6 +464,12 @@ function populateSampleQueries() {
             queryEditor.setValue(sample.query);
             updateQueryStatus(`Loaded: ${sample.title}`);
             document.getElementById("samplesMenu").classList.add("hidden");
+            
+            // Clear the result box when loading a new sample query
+            resultEditor.setValue("");
+            
+            // Switch to query tab if not already there
+            switchTab("query");
         });
         
         container.appendChild(button);
