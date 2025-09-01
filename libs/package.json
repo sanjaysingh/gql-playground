@@ -4,8 +4,12 @@
   "description": "Browser-based GraphQL playground",
   "main": "main.js",
   "scripts": {
-    "build": "browserify main.js -o bundle-graphql-16.8.1.js",
-    "watch": "watchify main.js -o bundle-graphql-16.8.1.js -v"
+    "build": "npm run build:graphql && npm run build:app",
+    "build:graphql": "browserify graphql-lib.js -o graphql-bundle.js",
+    "build:app": "browserify app-logic.js -o app-bundle.js",
+    "watch": "npm run watch:graphql & npm run watch:app",
+    "watch:graphql": "watchify graphql-lib.js -o graphql-bundle.js -v",
+    "watch:app": "watchify app-logic.js -o app-bundle.js -v"
   },
   "dependencies": {
     "graphql": "^16.8.1"
