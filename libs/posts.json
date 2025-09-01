@@ -1,0 +1,105 @@
+[
+  { "id": "1", "title": "Introduction to GraphQL", "content": "Learn the basics of GraphQL and how it differs from REST APIs.", "author_id": "1" },
+  { "id": "2", "title": "Advanced GraphQL Queries", "content": "Master complex queries, mutations, and subscriptions in GraphQL.", "author_id": "1" },
+  { "id": "3", "title": "GraphQL Schema Design", "content": "Best practices for designing scalable and maintainable GraphQL schemas.", "author_id": "1" },
+  
+  { "id": "4", "title": "JavaScript ES6 Features", "content": "Explore the powerful features introduced in ECMAScript 6.", "author_id": "2" },
+  { "id": "5", "title": "Async/Await in JavaScript", "content": "Understanding asynchronous programming with async/await syntax.", "author_id": "2" },
+  
+  { "id": "6", "title": "React Component Patterns", "content": "Learn different patterns for building reusable React components.", "author_id": "3" },
+  { "id": "7", "title": "React Hooks Deep Dive", "content": "Master React Hooks for state management and side effects.", "author_id": "3" },
+  { "id": "8", "title": "React Performance Optimization", "content": "Techniques to optimize React applications for better performance.", "author_id": "3" },
+  { "id": "9", "title": "React Testing Strategies", "content": "Comprehensive guide to testing React applications.", "author_id": "3" },
+  
+  { "id": "10", "title": "Node.js Fundamentals", "content": "Getting started with server-side JavaScript using Node.js.", "author_id": "4" },
+  { "id": "11", "title": "Express.js Best Practices", "content": "Building robust web applications with Express.js framework.", "author_id": "4" },
+  
+  { "id": "12", "title": "Database Design Principles", "content": "Fundamental principles for designing efficient database schemas.", "author_id": "5" },
+  { "id": "13", "title": "SQL Query Optimization", "content": "Techniques to write faster and more efficient SQL queries.", "author_id": "5" },
+  { "id": "14", "title": "NoSQL vs SQL Databases", "content": "Comparing different database paradigms and when to use each.", "author_id": "5" },
+  { "id": "15", "title": "Database Indexing Strategies", "content": "Understanding how database indexes work and when to use them.", "author_id": "5" },
+  { "id": "16", "title": "ACID Properties Explained", "content": "Deep dive into database transaction properties and consistency.", "author_id": "5" },
+  
+  { "id": "17", "title": "Docker Containers Guide", "content": "Introduction to containerization with Docker technology.", "author_id": "6" },
+  
+  { "id": "18", "title": "Python Data Structures", "content": "Comprehensive guide to Python's built-in data structures.", "author_id": "7" },
+  { "id": "19", "title": "Python Web Development", "content": "Building web applications using Python frameworks.", "author_id": "7" },
+  { "id": "20", "title": "Python Testing with pytest", "content": "Writing effective tests for Python applications.", "author_id": "7" },
+  
+  { "id": "21", "title": "Git Version Control", "content": "Mastering Git for effective version control and collaboration.", "author_id": "8" },
+  { "id": "22", "title": "Git Branching Strategies", "content": "Different branching models for team development workflows.", "author_id": "8" },
+  
+  { "id": "23", "title": "CSS Grid Layout", "content": "Modern CSS layout techniques using CSS Grid.", "author_id": "9" },
+  { "id": "24", "title": "CSS Flexbox Guide", "content": "Complete guide to flexible box layout in CSS.", "author_id": "9" },
+  { "id": "25", "title": "Responsive Web Design", "content": "Creating websites that work on all device sizes.", "author_id": "9" },
+  
+  { "id": "26", "title": "TypeScript Fundamentals", "content": "Adding type safety to JavaScript with TypeScript.", "author_id": "10" },
+  { "id": "27", "title": "TypeScript Advanced Types", "content": "Exploring advanced type features in TypeScript.", "author_id": "10" },
+  { "id": "28", "title": "TypeScript with React", "content": "Building type-safe React applications with TypeScript.", "author_id": "10" },
+  { "id": "29", "title": "TypeScript Configuration", "content": "Setting up and configuring TypeScript projects.", "author_id": "10" },
+  
+  { "id": "30", "title": "API Design Best Practices", "content": "Principles for designing clean and maintainable APIs.", "author_id": "11" },
+  { "id": "31", "title": "RESTful API Guidelines", "content": "Following REST principles for web API development.", "author_id": "11" },
+  
+  { "id": "32", "title": "MongoDB Basics", "content": "Introduction to document-based database with MongoDB.", "author_id": "12" },
+  { "id": "33", "title": "MongoDB Aggregation", "content": "Advanced data processing with MongoDB aggregation pipeline.", "author_id": "12" },
+  { "id": "34", "title": "MongoDB Performance", "content": "Optimizing MongoDB queries and database performance.", "author_id": "12" },
+  
+  { "id": "35", "title": "Vue.js Components", "content": "Building interactive UIs with Vue.js component system.", "author_id": "13" },
+  { "id": "36", "title": "Vue.js State Management", "content": "Managing application state with Vuex and Vue 3 Composition API.", "author_id": "13" },
+  
+  { "id": "37", "title": "AWS Cloud Services", "content": "Overview of Amazon Web Services for cloud computing.", "author_id": "14" },
+  { "id": "38", "title": "AWS Lambda Functions", "content": "Serverless computing with AWS Lambda functions.", "author_id": "14" },
+  { "id": "39", "title": "AWS S3 Storage", "content": "Object storage and content delivery with Amazon S3.", "author_id": "14" },
+  
+  { "id": "40", "title": "Machine Learning Basics", "content": "Introduction to machine learning concepts and algorithms.", "author_id": "15" },
+  
+  { "id": "41", "title": "DevOps Fundamentals", "content": "Understanding DevOps culture and practices.", "author_id": "16" },
+  { "id": "42", "title": "CI/CD Pipelines", "content": "Implementing continuous integration and deployment pipelines.", "author_id": "16" },
+  { "id": "43", "title": "Infrastructure as Code", "content": "Managing infrastructure using code and automation tools.", "author_id": "16" },
+  
+  { "id": "44", "title": "Kubernetes Orchestration", "content": "Container orchestration with Kubernetes platform.", "author_id": "17" },
+  { "id": "45", "title": "Kubernetes Networking", "content": "Understanding networking concepts in Kubernetes clusters.", "author_id": "17" },
+  
+  { "id": "46", "title": "Redis Caching", "content": "Improving application performance with Redis caching.", "author_id": "18" },
+  { "id": "47", "title": "Redis Data Structures", "content": "Exploring Redis data types and use cases.", "author_id": "18" },
+  { "id": "48", "title": "Redis Pub/Sub", "content": "Real-time messaging with Redis publish/subscribe.", "author_id": "18" },
+  
+  { "id": "49", "title": "GraphQL vs REST", "content": "Comparing GraphQL and REST API architectures.", "author_id": "19" },
+  
+  { "id": "50", "title": "Web Security Basics", "content": "Essential web security concepts every developer should know.", "author_id": "20" },
+  { "id": "51", "title": "HTTPS and SSL/TLS", "content": "Understanding secure communication protocols for web applications.", "author_id": "20" },
+  { "id": "52", "title": "Authentication Strategies", "content": "Different approaches to user authentication in web applications.", "author_id": "20" },
+  
+  { "id": "53", "title": "Microservices Architecture", "content": "Designing applications using microservices patterns.", "author_id": "21" },
+  { "id": "54", "title": "Service Mesh Technology", "content": "Managing microservices communication with service mesh.", "author_id": "21" },
+  
+  { "id": "55", "title": "Software Testing Fundamentals", "content": "Introduction to different types of software testing.", "author_id": "22" },
+  { "id": "56", "title": "Test-Driven Development", "content": "Writing tests before code using TDD methodology.", "author_id": "22" },
+  { "id": "57", "title": "Integration Testing", "content": "Testing the interaction between different system components.", "author_id": "22" },
+  
+  { "id": "58", "title": "Code Review Best Practices", "content": "Guidelines for effective code review processes.", "author_id": "23" },
+  
+  { "id": "59", "title": "Agile Development", "content": "Understanding agile methodologies and scrum framework.", "author_id": "24" },
+  { "id": "60", "title": "Sprint Planning", "content": "Effective techniques for agile sprint planning meetings.", "author_id": "24" },
+  
+  { "id": "61", "title": "System Design Principles", "content": "Fundamental principles for designing scalable systems.", "author_id": "25" },
+  { "id": "62", "title": "Load Balancing Strategies", "content": "Different approaches to distributing system load.", "author_id": "25" },
+  { "id": "63", "title": "Database Sharding", "content": "Horizontal scaling techniques for large databases.", "author_id": "25" },
+  { "id": "64", "title": "Caching Patterns", "content": "Various caching strategies for improving system performance.", "author_id": "25" },
+  
+  { "id": "65", "title": "Linux Command Line", "content": "Essential Linux commands for developers and system administrators.", "author_id": "26" },
+  
+  { "id": "66", "title": "Algorithm Analysis", "content": "Understanding time and space complexity of algorithms.", "author_id": "27" },
+  { "id": "67", "title": "Data Structures Deep Dive", "content": "Comprehensive guide to fundamental data structures.", "author_id": "27" },
+  
+  { "id": "68", "title": "Clean Code Principles", "content": "Writing maintainable and readable code following clean code practices.", "author_id": "28" },
+  { "id": "69", "title": "Code Refactoring", "content": "Techniques for improving existing code without changing functionality.", "author_id": "28" },
+  { "id": "70", "title": "Design Patterns", "content": "Common software design patterns and their applications.", "author_id": "28" },
+  
+  { "id": "71", "title": "Performance Monitoring", "content": "Tools and techniques for monitoring application performance.", "author_id": "29" },
+  
+  { "id": "72", "title": "Functional Programming", "content": "Introduction to functional programming paradigms and concepts.", "author_id": "30" },
+  { "id": "73", "title": "Lambda Functions", "content": "Using anonymous functions in various programming languages.", "author_id": "30" },
+  { "id": "74", "title": "Immutable Data Structures", "content": "Benefits and implementation of immutable data in programming.", "author_id": "30" }
+] 

@@ -1,0 +1,17 @@
+{
+  "name": "graphql-playground",
+  "version": "1.0.0",
+  "description": "Browser-based GraphQL playground",
+  "main": "main.js",
+  "scripts": {
+    "build": "browserify main.js -o bundle-graphql-16.8.1.js",
+    "watch": "watchify main.js -o bundle-graphql-16.8.1.js -v"
+  },
+  "dependencies": {
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "watchify": "^4.0.0"
+  }
+}

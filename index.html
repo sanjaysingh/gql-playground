@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GraphQL Playground</title>
+    
+    <!-- Monaco Editor -->
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- Our bundled GraphQL code -->
+    <script src="libs/bundle-graphql-16.8.1.js"></script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Header -->
+    <div class="bg-gray-800 border-b border-gray-700 px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <h1 class="text-xl font-bold text-blue-400">GraphQL Playground</h1>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button id="runQueryBtn" class="header-button primary"> Run Query</button>
+            
+            <!-- Sample Queries Dropdown -->
+            <div class="relative">
+                <button id="samplesDropdown" class="header-button secondary flex items-center">
+                    Sample Queries
+                    <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div id="samplesMenu" class="absolute right-0 mt-2 w-64 bg-gray-800 rounded-lg shadow-xl border border-gray-600 z-50 hidden">
+                    <div class="py-1" id="samplesMenuList">
+                        <!-- Sample queries will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading">
+        <div>
+            <div class="spinner"></div>
+            <div class="mt-2 text-gray-400">Loading GraphQL Playground...</div>
+        </div>
+    </div>
+    
+    <!-- Error Display -->
+    <div id="errorDisplay" class="error-message hidden">
+        <strong>Error:</strong> <span id="errorText"></span>
+    </div>
+    
+    <!-- Main Playground -->
+    <div id="mainApp" class="graphiql-container hidden">
+        <div class="editor-section">
+            <!-- Query Editor -->
+            <div class="query-editor">
+                <div class="playground-tabs">
+                    <button class="tab-button active" data-tab="query">Query</button>
+                    <button class="tab-button" data-tab="docs">Docs</button>
+                </div>
+                <div id="queryEditor" class="monaco-editor-container"></div>
+            </div>
+            
+            <!-- Result Panel -->
+            <div class="result-panel">
+                <div class="editor-header">Query Result</div>
+                <div id="resultEditor" class="monaco-editor-container"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <span id="statusText">Ready</span>
+        <span id="queryStatus">No query executed</span>
+    </div>
+
+    <!-- Application JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>

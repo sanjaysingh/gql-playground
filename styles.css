@@ -1,0 +1,315 @@
+.graphiql-container {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-section {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: row;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+    .editor-section {
+        flex-direction: column;
+    }
+}
+
+.query-editor, .result-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+/* Mobile adjustments for editor panels */
+@media (max-width: 768px) {
+    .query-editor, .result-panel {
+        min-height: 250px;
+        flex: none;
+        height: 50vh;
+    }
+}
+
+.editor-header {
+    padding: 8px 12px;
+    background: #2d3748;
+    color: white;
+    font-weight: 600;
+    border-bottom: 1px solid #4a5568;
+}
+
+.monaco-editor-container {
+    flex: 1;
+    min-height: 300px;
+}
+
+/* Mobile: Adjust Monaco editor container */
+@media (max-width: 768px) {
+    .monaco-editor-container {
+        min-height: 200px;
+    }
+}
+
+.playground-tabs {
+    display: flex;
+    background: #2d3748;
+    border-bottom: 1px solid #4a5568;
+}
+
+.tab-button {
+    padding: 8px 16px;
+    background: transparent;
+    color: #a0aec0;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+}
+
+/* Mobile: Better touch targets for tabs */
+@media (max-width: 768px) {
+    .tab-button {
+        padding: 12px 16px;
+        font-size: 16px;
+        min-height: 44px;
+    }
+}
+
+.tab-button.active {
+    color: #63b3ed;
+    border-bottom-color: #63b3ed;
+}
+
+.tab-button:hover {
+    color: #e2e8f0;
+}
+
+/* Sample queries dropdown styles */
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: #e5e7eb;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 1px solid #4b5563;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: #4b5563;
+    color: #f9fafb;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.dropdown-item:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.dropdown-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #f3f4f6;
+}
+
+.dropdown-description {
+    font-size: 12px;
+    opacity: 0.8;
+    color: #d1d5db;
+}
+
+
+
+/* Consistent header button styles */
+.header-button {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.header-button.primary {
+    background: #10b981;
+    color: white;
+}
+
+.header-button.primary:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header-button.primary:disabled {
+    background: #6b7280;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.header-button.secondary {
+    background: #374151;
+    color: #e5e7eb;
+    border: 1px solid #4b5563;
+}
+
+.header-button.secondary:hover {
+    background: #4b5563;
+    color: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile: Larger touch targets */
+@media (max-width: 768px) {
+    .header-button {
+        padding: 12px 18px;
+        font-size: 16px;
+        min-height: 44px;
+    }
+}
+
+.status-bar {
+    background: #2d3748;
+    color: #a0aec0;
+    padding: 4px 12px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-message {
+    background: #c53030;
+    color: white;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.spinner {
+    border: 2px solid #4a5568;
+    border-top: 2px solid #63b3ed;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Improve header responsiveness */
+    .bg-gray-800 {
+        padding: 8px 12px;
+    }
+    
+    .bg-gray-800 h1 {
+        font-size: 1.25rem;
+    }
+    
+    /* Better spacing for mobile */
+    .space-x-2 > * + * {
+        margin-left: 0.25rem;
+    }
+    
+    /* Status bar adjustments */
+    .status-bar {
+        padding: 8px 12px;
+        font-size: 11px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    /* Error message improvements */
+    .error-message {
+        margin: 4px;
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    /* Loading screen adjustments */
+    .loading {
+        height: 150px;
+        padding: 20px;
+    }
+    
+    /* Dropdown adjustments for mobile */
+    .dropdown-item {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    .dropdown-title {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    
+    .dropdown-description {
+        font-size: 14px;
+    }
+}
+
+/* Very small screens (phones in portrait) */
+@media (max-width: 480px) {
+    .graphiql-container {
+        height: calc(100vh - 50px);
+    }
+    
+    .bg-gray-800 {
+        padding: 6px 8px;
+    }
+    
+    .bg-gray-800 h1 {
+        font-size: 1.1rem;
+    }
+    
+    .header-button {
+        padding: 10px 14px;
+        font-size: 14px;
+        min-height: 40px;
+    }
+    
+    .query-editor, .result-panel {
+        height: 45vh;
+    }
+} 
