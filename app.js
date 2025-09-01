@@ -3,6 +3,30 @@ let queryEditor = null;
 let resultEditor = null;
 let graphQLSchema = null;
 
+// URL Parameter handling for deep linking
+function getQueryFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('query');
+    const decodedQuery = query ? decodeURIComponent(query) : null;
+    return decodedQuery;
+}
+
+function updateURLWithQuery(query) {
+    if (!query || query.trim() === '') {
+        // Remove query parameter if query is empty
+        const url = new URL(window.location);
+        url.searchParams.delete('query');
+        window.history.replaceState({}, '', url);
+        return;
+    }
+    
+    const url = new URL(window.location);
+    url.searchParams.set('query', encodeURIComponent(query));
+    window.history.replaceState({}, '', url);
+}
+
+
+
 // Initialize the app immediately
 async function initializeApp() {
     try {
@@ -25,13 +49,24 @@ async function initializeApp() {
         updateStatus("Loading Monaco Editor...");
         await initializeMonaco();
         
-            setupUI();
-    showMainApp();
-    
-    // Initialize the query tab as active
-    switchTab("query");
-    
-    updateStatus("GraphQL Playground Ready!");
+        setupUI();
+        showMainApp();
+        
+        // Initialize the query tab as active
+        switchTab("query");
+        
+        // Load query from URL if present and auto-execute
+        const urlQuery = getQueryFromURL();
+        if (urlQuery) {
+            queryEditor.setValue(urlQuery);
+            updateQueryStatus("Loaded query from URL");
+            // Auto-execute the query after a short delay to ensure UI is ready
+            setTimeout(() => {
+                runQuery();
+            }, 500);
+        }
+        
+        updateStatus("GraphQL Playground Ready!");
         
     } catch (error) {
         console.error("Initialization error:", error);
@@ -194,6 +229,8 @@ function setupUI() {
     // Run query button
     document.getElementById("runQueryBtn").addEventListener("click", runQuery);
     
+
+    
     // Sample queries dropdown
     document.getElementById("samplesDropdown").addEventListener("click", toggleSamplesDropdown);
     
@@ -214,6 +251,12 @@ function setupUI() {
     
     // Populate sample queries
     populateSampleQueries();
+    
+    // Set up query editor change listener (with debounce for URL updates)
+    // This will be called after Monaco editor is initialized
+    if (queryEditor) {
+        setupQueryEditorChangeListener();
+    }
 }
 
 // Run GraphQL query
@@ -227,6 +270,9 @@ async function runQuery() {
     
     try {
         const query = queryEditor.getValue();
+        
+        // Update URL with current query for deep linking
+        updateURLWithQuery(query);
         
         updateQueryStatus("Executing query...");
         
@@ -252,6 +298,28 @@ async function runQuery() {
 }
 
 
+
+
+
+// Set up query editor change listener with debounce
+function setupQueryEditorChangeListener() {
+    let debounceTimeout;
+    
+    if (queryEditor) {
+        queryEditor.onDidChangeModelContent(() => {
+            // Clear previous timeout
+            if (debounceTimeout) {
+                clearTimeout(debounceTimeout);
+            }
+            
+            // Set new timeout to update URL after 1 second of no changes
+            debounceTimeout = setTimeout(() => {
+                const query = queryEditor.getValue();
+                updateURLWithQuery(query);
+            }, 1000);
+        });
+    }
+}
 
 // Toggle sample queries dropdown
 function toggleSamplesDropdown() {
@@ -465,11 +533,16 @@ function populateSampleQueries() {
             updateQueryStatus(`Loaded: ${sample.title}`);
             document.getElementById("samplesMenu").classList.add("hidden");
             
-            // Clear the result box when loading a new sample query
-            resultEditor.setValue("");
+            // Update URL with the sample query for deep linking
+            updateURLWithQuery(sample.query);
             
             // Switch to query tab if not already there
             switchTab("query");
+            
+            // Auto-execute the sample query after a short delay
+            setTimeout(() => {
+                runQuery();
+            }, 200);
         });
         
         container.appendChild(button);

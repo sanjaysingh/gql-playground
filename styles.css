@@ -200,6 +200,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
 }
 
 .error-message {
@@ -288,6 +289,11 @@
         font-size: 11px;
         flex-wrap: wrap;
         gap: 8px;
+    }
+    
+    /* Hide tip text on mobile to save space */
+    .status-bar span:last-child {
+        display: none;
     }
     
     /* Error message improvements */
